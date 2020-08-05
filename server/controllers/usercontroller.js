@@ -16,8 +16,8 @@ router.post('/signup', function (req, res) {
 
     User.create({
         email: req.body.user.email,
-        password: bcrypt.hashSync(req.body.user.password, 13),
         username: req.body.user.username,
+        password: bcrypt.hashSync(req.body.user.password, 13),
         firstName: req.body.user.firstName,
         lastName: req.body.user.lastName,
         biography: req.body.user.biography,
