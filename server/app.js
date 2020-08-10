@@ -8,8 +8,9 @@ let user = require('./controllers/usercontroller');
 
 sequelize.sync();
 //sequelize.sync({force: true})
-app.use(express.json());
 app.use(require('./middleware/headers'));
+app.use(express.json());
+
 
 app.use('/review', review);
 app.use('/user', user);
