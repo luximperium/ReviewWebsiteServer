@@ -36,6 +36,16 @@ router.get('/:title', function (req, res) {
     .catch(err => res.status(500).json({ error: err }))
 });
 
+router.get('/:projectName', function (req, res) {
+    let projectName = req.params.projectName;
+
+    Review.findAll({
+        where: {projectName: projectName}
+    })
+    .then(review => res.status(200).json(review))
+    .catch(err => res.status(500).json({ error: err }))
+});
+
 //GET all user's reviews - works
 router.get('/user/mine', validateSession, function (req, res) {
     
